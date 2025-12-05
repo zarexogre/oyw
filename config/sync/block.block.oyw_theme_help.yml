@@ -1,0 +1,22 @@
+uuid: 25ab54b2-3eef-4c03-bbc6-43099b925dc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - oyw_theme
+_core:
+  default_config_hash: uWJWA23HyWszcz0GqtsPqL0TcCZUK7H4cY4Udr0vMHk
+id: oyw_theme_help
+theme: oyw_theme
+region: content
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

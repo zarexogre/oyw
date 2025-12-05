@@ -1,0 +1,22 @@
+uuid: 103f24ca-bfa5-4b05-bd40-798c43a2ff41
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oyw_theme
+_core:
+  default_config_hash: 54E1ujN-aaq3GdMhZ0g1S-sb7trfGCvRas1dorvxEYk
+id: oyw_theme_local_tasks
+theme: oyw_theme
+region: content
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

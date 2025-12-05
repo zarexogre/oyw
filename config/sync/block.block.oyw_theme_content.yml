@@ -1,0 +1,22 @@
+uuid: 482d6cc9-1c22-464d-9e97-bef0fd06d9ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oyw_theme
+_core:
+  default_config_hash: LI3m6lzJaDNDMPAdQ60MAmAcG1p808kueUSK-_LRcxM
+id: oyw_theme_content
+theme: oyw_theme
+region: content
+weight: -1
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

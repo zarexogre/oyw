@@ -1,0 +1,23 @@
+uuid: 176c666e-273f-4472-91d4-b7ce0b1341c2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oyw_theme
+id: oyw_theme_sitebranding
+theme: oyw_theme
+region: nav_branding
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

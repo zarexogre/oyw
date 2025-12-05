@@ -1,0 +1,22 @@
+uuid: b54d6e82-334c-4a6e-9b58-7f6cdd86579d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oyw_theme
+_core:
+  default_config_hash: JyZTf2LO5wzMjjvroiSvVmtboGG-7KbqFYHgF4paiGc
+id: oyw_theme_messages
+theme: oyw_theme
+region: content
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  label_display: '0'
+  provider: system
+visibility: {  }
