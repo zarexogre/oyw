@@ -49,6 +49,7 @@
             "oomphinc/composer-installers-extender": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
+            "tbachert/spi": true,
             "zaporylie/composer-drupal-optimizations": true
         },
         "sort-packages": true,
@@ -113,5 +114,11 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "behat/mink": "^1.13",
+        "behat/mink-browserkit-driver": "^2.3",
+        "drupal/core-dev": "^11.2",
+        "phpunit/phpunit": "^11"
     }
 }

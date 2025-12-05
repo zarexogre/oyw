@@ -1,8 +1,9 @@
 #!/bin/sh
-ddev phpunit web/modules/custom/oyw_salesforce/tests/src/Unit
+ddev exec ./vendor/bin/phpunit -c web/core/phpunit.xml.dist web/modules/custom/oyw_salesforce/tests/src/Unit
 RESULT=$?
 if [ $RESULT -ne 0 ]; then
   echo "PHPUnit failed. Commit aborted."
   exit 1
 fi
 exit 0
+
