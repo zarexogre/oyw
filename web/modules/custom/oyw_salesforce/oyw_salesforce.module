@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * OYW Client.
+ */
+
 use Drupal\Core\Entity\FieldableEntityInterface;
 use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\oyw_salesforce\SalesforceFieldValues;
@@ -19,14 +24,14 @@ use Drupal\oyw_salesforce\SalesforceFieldValues;
  *   label as the value.
  */
 function oyw_salesforce_options_allowed_values(
-    FieldStorageDefinitionInterface $definition,
-    ?FieldableEntityInterface $entity = null,
-    array &$cacheable = []
+  FieldStorageDefinitionInterface $definition,
+  ?FieldableEntityInterface $entity = NULL,
+  array &$cacheable = [],
 ): array {
-    $service = \Drupal::service('oyw_salesforce.salesforce_field_values');
+  $service = \Drupal::service('oyw_salesforce.salesforce_field_values');
 
-    // Type hint service so I can goto the function quickly in vscode.
-    assert($service instanceof SalesforceFieldValues);
+  // Type hint service so I can goto the function quickly in vscode.
+  assert($service instanceof SalesforceFieldValues);
 
-    return $service->getAllowedValues($definition, $entity, $cacheable);
+  return $service->getAllowedValues($definition, $entity, $cacheable);
 }

@@ -9,45 +9,51 @@ use Drupal\Tests\UnitTestCase;
 use Drupal\Component\Datetime\Time;
 use Drupal\Core\Cache\MemoryBackend;
 
-class SalesforceFieldValuesTest extends UnitTestCase
-{
-    // This test verifies that:
-    // 1) Values are built from the Salesforce API response
-    // 2) The result is cached so the API is not called twice
-    public function testValuesAreBuiltAndCached(): void
-    {
-        // Create a mock Salesforce client so no real API call is made
-        $client = $this->createMock(OywSalesforceClient::class);
+/**
+ * Salesforce Field Values Test.
+ */
+class SalesforceFieldValuesTest extends UnitTestCase {
 
-        // Create a real in-memory cache backend for the test
-        $time = new Time();
-        $cache = new MemoryBackend($time);
+  /**
+   * This test verifies that.
+   *
+   * 1) Values are built from the Salesforce API response.
+   * 2) The result is cached so the API is not called twice.
+   */
+  public function testValuesAreBuiltAndCached(): void {
+    // Create a mock Salesforce client so no real API call is made.
+    $client = $this->createMock(OywSalesforceClient::class);
 
-        // Mock the field definition and force the field name to be "field_gender"
-        $definition = $this->createMock(FieldStorageDefinitionInterface::class);
-        $definition->method('getName')->willReturn('field_gender');
+    // Create a real in-memory cache backend for the test.
+    $time = new Time();
+    $cache = new MemoryBackend($time);
 
-        // Tell the mock client that getPicklistValues() should be called once
-        // and return a fake Salesforce-style response
-        $client->expects($this->once())
-            ->method('getPicklistValues')
-            ->willReturn([
-                'values' => [
-                    ['value' => 'Male', 'label' => 'Male'],
-                    ['value' => 'Female', 'label' => 'Female'],
-                ],
-            ]);
+    // Mock the field definition and force the field name to be "field_gender".
+    $definition = $this->createMock(FieldStorageDefinitionInterface::class);
+    $definition->method('getName')->willReturn('field_gender');
 
-        // Create the real service using the mocked client and real cache
-        $service = new SalesforceFieldValues($client, $cache);
+    // Tell the mock client that getPicklistValues() should be called once
+    // and return a fake Salesforce-style response.
+    $client->expects($this->once())
+      ->method('getPicklistValues')
+      ->willReturn([
+        'values' => [
+                  ['value' => 'Male', 'label' => 'Male'],
+                  ['value' => 'Female', 'label' => 'Female'],
+        ],
+      ]);
 
-        // First call should hit the mocked Salesforce client and cache the result
-        $values1 = $service->getAllowedValues($definition);
+    // Create the real service using the mocked client and real cache.
+    $service = new SalesforceFieldValues($client, $cache);
 
-        // Second call should come from cache, not from the client again
-        $values2 = $service->getAllowedValues($definition);
+    // First call should hit the mocked Salesforce client and cache the result.
+    $values1 = $service->getAllowedValues($definition);
 
-        // Assert that both calls return exactly the same cached result
-        $this->assertSame($values1, $values2);
-    }
+    // Second call should come from cache, not from the client again.
+    $values2 = $service->getAllowedValues($definition);
+
+    // Assert that both calls return exactly the same cached result.
+    $this->assertSame($values1, $values2);
+  }
+
 }
