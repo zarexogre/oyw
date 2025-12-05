@@ -1,0 +1,20 @@
+services:
+  # Custom Salesforce client with logging support, dependcy injected logger channel.
+  oyw_salesforce.client:
+    class: Drupal\oyw_salesforce\Client\OywSalesforceClient
+    # inherit everything from the existing salesforce.client service
+    parent: salesforce.client
+    arguments:
+    - '@logger.channel.oyw_salesforce'
+
+  oyw_salesforce.salesforce_field_values:
+    class: Drupal\oyw_salesforce\SalesforceFieldValues
+    # DI our salesforce client and drupals default cache backend
+    arguments:
+    - '@oyw_salesforce.client'
+    - '@cache.data'
+
+  # custom logger channel for our salesforce client
+  logger.channel.oyw_salesforce:
+    parent: logger.channel_base
+    arguments: [ 'oyw_salesforce' ]

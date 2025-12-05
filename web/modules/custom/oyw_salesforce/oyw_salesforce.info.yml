@@ -1,0 +1,7 @@
+name: OYW Salesforce
+type: module
+description: 'Populate list field options from Salesforce picklist values.'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - salesforce:salesforce
