@@ -15,4 +15,4 @@ jobs:
         username: root
         password: switch2505
         port: 22
-        script: cd /root/Projects/github_runner && git pull origin main && ./deploy.sh oyw --skip-db
+        script: cd /root/Projects/github_runner && git pull origin main && ./deploy.sh oyw
