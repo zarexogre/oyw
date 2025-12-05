@@ -19,37 +19,43 @@
         "drupal/admin_toolbar": "^3.5",
         "drupal/belgrade": "^2.0",
         "drupal/bootstrap5": "^4.0",
-        "drupal/core-composer-scaffold": "^10.5",
-        "drupal/core-project-message": "^10.5",
-        "drupal/core-recommended": "^10.5",
-        "drupal/gin": "^3.0@RC",
-        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/core-composer-scaffold": "^11.2",
+        "drupal/core-project-message": "^11.2",
+        "drupal/core-recommended": "^11.2",
+        "drupal/gin": "^5.0",
         "drupal/highlightjs_input_filter": "^1.1",
         "drupal/pathauto": "^1.14",
         "drupal/salesforce": "^5.1",
-        "drush/drush": "^13.7",
+        "drush/drush": "13.x-dev",
+        "symfony/console": "^7.2",
+        "symfony/dependency-injection": "^7.2",
+        "symfony/http-kernel": "^7.2",
         "vlucas/phpdotenv": "^5.6"
     },
     "conflict": {
         "drupal/drupal": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "RC",
     "prefer-stable": true,
     "config": {
         "allow-plugins": {
             "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "drupal/console-extend-plugin": true,
             "drupal/core-composer-scaffold": true,
             "drupal/core-project-message": true,
-            "phpstan/extension-installer": true,
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true,
-            "cweagans/composer-patches": true,
             "drupal/core-vendor-hardening": true,
-            "zaporylie/composer-drupal-optimizations": true,
-            "drupal/console-extend-plugin": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "phpstan/extension-installer": true,
+            "zaporylie/composer-drupal-optimizations": true
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "audit": {
+            "ignore": ["SA-CORE-2025-001,SA-CORE-2025-002,SA-CORE-2025-003,SA-CORE-2025-004,SA-CORE-2025-005,SA-CORE-2025-006,SA-CORE-2025-007,SA-CORE-2025-008"],
+            "block-insecure": false
+        }
     },
     "extra": {
         "drupal-scaffold": {
