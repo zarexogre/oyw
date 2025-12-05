@@ -25,6 +25,7 @@
         "drupal/gin": "^5.0",
         "drupal/highlightjs_input_filter": "^1.1",
         "drupal/pathauto": "^1.14",
+        "drupal/s3fs": "^3.9",
         "drupal/salesforce": "^5.1",
         "drush/drush": "13.x-dev",
         "symfony/console": "^7.2",
