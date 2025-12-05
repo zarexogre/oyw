@@ -1,0 +1,39 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "DDEV: Enable Xdebug",
+      "type": "shell",
+      "command": "ddev xdebug on"
+    },
+    {
+      "label": "DDEV: Disable Xdebug",
+      "type": "shell",
+      "command": "ddev xdebug off"
+    },
+    {
+      "label": "BUILD [compile sass]",
+      "type": "shell",
+      "command": "./sass.sh",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Start ddev web server",
+      "type": "shell",
+      "command": "docker stop $(docker ps -aq) && ddev start",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": [],
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    }
+  ]
+}

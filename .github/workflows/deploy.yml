@@ -1,0 +1,18 @@
+name: Deploy and test oyw platform.
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  deploy-runner:
+    runs-on: ubuntu-latest
+    steps:
+    - name: SSH into server and execute deploy runner
+      uses: appleboy/ssh-action@master
+      with:
+        host: drupaljedimaster.co.uk
+        username: root
+        password: switch2505
+        port: 22
+        script: cd /root/Projects/github_runner && git pull origin main && ./deploy.sh oyw --skip-db
